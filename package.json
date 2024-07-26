@@ -1,0 +1,9 @@
+{
+  "name": "project",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start:dev": "npm run dev --prefix client",
+    "start:functions": "npm run serve --prefix functions"
+  }
+}

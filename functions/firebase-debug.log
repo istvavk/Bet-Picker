@@ -1,0 +1,435 @@
+[debug] [2024-07-26T15:26:54.962Z] ----------------------------------------------------------------------
+[debug] [2024-07-26T15:26:54.964Z] Command:       /Users/dariozavisic/.nvm/versions/node/v20.10.0/bin/node /Users/dariozavisic/.nvm/versions/node/v20.10.0/bin/firebase emulators:start --only functions
+[debug] [2024-07-26T15:26:54.964Z] CLI Version:   13.11.2
+[debug] [2024-07-26T15:26:54.964Z] Platform:      darwin
+[debug] [2024-07-26T15:26:54.964Z] Node Version:  v20.10.0
+[debug] [2024-07-26T15:26:54.964Z] Time:          Fri Jul 26 2024 17:26:54 GMT+0200 (Central European Summer Time)
+[debug] [2024-07-26T15:26:54.964Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-07-26T15:26:55.025Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-07-26T15:26:55.025Z] > authorizing via signed-in user (dakizavo@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2024-07-26T15:26:55.233Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-07-26T15:26:55.233Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2024-07-26T15:26:55.235Z] [hub] writing locator at /var/folders/g5/48p743kd7k5_jmp06sfd41y00000gn/T/hub-bet-picker.json
+[debug] [2024-07-26T15:26:55.375Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-07-26T15:26:55.378Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-07-26T15:26:55.378Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2024-07-26T15:26:55.380Z] defaultcredentials: writing to file /Users/dariozavisic/.config/firebase/dakizavo_gmail_com_application_default_credentials.json
+[debug] [2024-07-26T15:26:55.385Z] Setting GAC to /Users/dariozavisic/.config/firebase/dakizavo_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/dariozavisic/.config/firebase/dakizavo_gmail_com_application_default_credentials.json"}}
+[debug] [2024-07-26T15:26:55.385Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/bet-picker/adminSdkConfig [none]
+[debug] [2024-07-26T15:26:55.780Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/bet-picker/adminSdkConfig 200
+[debug] [2024-07-26T15:26:55.780Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/bet-picker/adminSdkConfig {"projectId":"bet-picker","storageBucket":"bet-picker.appspot.com"}
+[debug] [2024-07-26T15:26:55.800Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-07-26T15:26:55.801Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2024-07-26T15:26:55.801Z] Starting Emulator UI with command {"binary":"node","args":["/Users/dariozavisic/.cache/firebase/emulators/ui-v1.12.1/server/server.mjs"],"optionalArgs":[],"joinArgs":false,"shell":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/dariozavisic/.cache/firebase/emulators/ui-v1.12.1/server/server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false,\"shell\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2024-07-26T15:26:55.881Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2024-07-26T15:26:55.882Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] i  functions: Watching "/Users/dariozavisic/Desktop/Projects/discord/functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/Users/dariozavisic/Desktop/Projects/discord/functions\" for Cloud Functions..."}}
+[debug] [2024-07-26T15:26:56.015Z] Validating nodejs source
+[debug] [2024-07-26T15:26:56.435Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^12.2.0",
+    "firebase-functions": "^5.0.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.25.4",
+    "firebase-functions-test": "^3.1.0",
+    "typescript": "^4.9.0"
+  },
+  "private": true
+}
+[debug] [2024-07-26T15:26:56.435Z] Building nodejs source
+[debug] [2024-07-26T15:26:56.435Z] Failed to find version of module node: reached end of search path /Users/dariozavisic/Desktop/Projects/discord/functions/node_modules
+[info] ✔  functions: Using node@20 from host. 
+[debug] [2024-07-26T15:26:56.437Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-07-26T15:26:56.439Z] Found firebase-functions binary at '/Users/dariozavisic/Desktop/Projects/discord/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8960
+
+[debug] [2024-07-26T15:26:56.795Z] Got response from /__/functions.yaml {"endpoints":{"api-createUser":{"platform":"gcfv1","labels":{},"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"region":["us-central1"],"callableTrigger":{},"entryPoint":"api.createUser"},"api-userDocumentDelete":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"region":["us-central1"],"eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.delete","eventFilters":{"resource":"projects/bet-picker/databases/(default)/documents/users/{documentId}"},"retry":false},"labels":{},"entryPoint":"api.userDocumentDelete"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[info] ✔  functions: Loaded functions definitions from source: api.createUser, api.userDocumentDelete. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: api.createUser, api.userDocumentDelete."}}
+[info] ✔  functions[us-central1-api-createUser]: http function initialized (http://127.0.0.1:5001/bet-picker/us-central1/api-createUser). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/bet-picker/us-central1/api-createUser)."}}
+[info] i  functions[us-central1-api-userDocumentDelete]: function ignored because the firestore emulator does not exist or is not running. {"metadata":{"emulator":{"name":"functions"},"message":"function ignored because the firestore emulator does not exist or is not running."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2024-07-26T15:27:20.031Z] [work-queue] {"queuedWork":["/bet-picker/us-central1/api-createUser-2024-07-26T15:27:20.031Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-07-26T15:27:20.032Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/bet-picker/us-central1/api-createUser-2024-07-26T15:27:20.031Z"],"workRunningCount":1}
+[debug] [2024-07-26T15:27:20.033Z] Accepted request OPTIONS /bet-picker/us-central1/api-createUser --> us-central1-api-createUser
+[debug] [2024-07-26T15:27:20.037Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-07-26T15:27:20.039Z] [functions] Got req.url=/bet-picker/us-central1/api-createUser, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/bet-picker/us-central1/api-createUser, mapping to path=/"}}
+[debug] [2024-07-26T15:27:20.044Z] [worker-pool] addWorker(us-central1-api-createUser) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-api-createUser)"}}
+[debug] [2024-07-26T15:27:20.045Z] [worker-pool] Adding worker with key us-central1-api-createUser, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-api-createUser, total=1"}}
+[debug] [2024-07-26T15:27:20.668Z] [runtime-status] [2624] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.2.0","resolution":"/Users/dariozavisic/Desktop/Projects/discord/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[runtime-status] [2624] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.2.0\",\"resolution\":\"/Users/dariozavisic/Desktop/Projects/discord/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2024-07-26T15:27:20.669Z] [runtime-status] [2624] Resolved module firebase-functions {"declared":true,"installed":true,"version":"5.0.1","resolution":"/Users/dariozavisic/Desktop/Projects/discord/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[runtime-status] [2624] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"5.0.1\",\"resolution\":\"/Users/dariozavisic/Desktop/Projects/discord/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2024-07-26T15:27:20.670Z] [runtime-status] [2624] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[runtime-status] [2624] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2024-07-26T15:27:20.670Z] [runtime-status] [2624] Resolved module firebase-functions {"declared":true,"installed":true,"version":"5.0.1","resolution":"/Users/dariozavisic/Desktop/Projects/discord/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[runtime-status] [2624] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"5.0.1\",\"resolution\":\"/Users/dariozavisic/Desktop/Projects/discord/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2024-07-26T15:27:20.791Z] [runtime-status] [2624] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[runtime-status] [2624] Checked functions.config() {\"config\":{}}"}}
+[debug] [2024-07-26T15:27:20.791Z] [runtime-status] [2624] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"5.0.1","resolution":"/Users/dariozavisic/Desktop/Projects/discord/functions/node_modules/firebase-functions/lib/v1/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[runtime-status] [2624] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"5.0.1\",\"resolution\":\"/Users/dariozavisic/Desktop/Projects/discord/functions/node_modules/firebase-functions/lib/v1/index.js\"}}"}}
+[debug] [2024-07-26T15:27:20.791Z] [runtime-status] [2624] Resolved module firebase-functions {"declared":true,"installed":true,"version":"5.0.1","resolution":"/Users/dariozavisic/Desktop/Projects/discord/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[runtime-status] [2624] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"5.0.1\",\"resolution\":\"/Users/dariozavisic/Desktop/Projects/discord/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2024-07-26T15:27:20.791Z] [runtime-status] [2624] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.2.0","resolution":"/Users/dariozavisic/Desktop/Projects/discord/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[runtime-status] [2624] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.2.0\",\"resolution\":\"/Users/dariozavisic/Desktop/Projects/discord/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2024-07-26T15:27:20.792Z] [runtime-status] [2624] Resolved module firebase-functions {"declared":true,"installed":true,"version":"5.0.1","resolution":"/Users/dariozavisic/Desktop/Projects/discord/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[runtime-status] [2624] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"5.0.1\",\"resolution\":\"/Users/dariozavisic/Desktop/Projects/discord/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2024-07-26T15:27:20.792Z] [runtime-status] [2624] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"12.2.0","resolution":"/Users/dariozavisic/Desktop/Projects/discord/functions/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[runtime-status] [2624] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"12.2.0\",\"resolution\":\"/Users/dariozavisic/Desktop/Projects/discord/functions/node_modules/firebase-admin/lib/index.js\"}}"}}
+[debug] [2024-07-26T15:27:20.795Z] [runtime-status] [2624] initializeApp(DEFAULT) {"storageBucket":"bet-picker.appspot.com","projectId":"bet-picker"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[runtime-status] [2624] initializeApp(DEFAULT) {\"storageBucket\":\"bet-picker.appspot.com\",\"projectId\":\"bet-picker\"}"}}
+[debug] [2024-07-26T15:27:20.797Z] [runtime-status] [2624] Functions runtime initialized. {"cwd":"/Users/dariozavisic/Desktop/Projects/discord/functions","node_version":"20.10.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[runtime-status] [2624] Functions runtime initialized. {\"cwd\":\"/Users/dariozavisic/Desktop/Projects/discord/functions\",\"node_version\":\"20.10.0\"}"}}
+[debug] [2024-07-26T15:27:20.798Z] [runtime-status] [2624] Listening to port: /var/folders/g5/48p743kd7k5_jmp06sfd41y00000gn/T/fire_emu_ddeba3f8836f9c9c.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[runtime-status] [2624] Listening to port: /var/folders/g5/48p743kd7k5_jmp06sfd41y00000gn/T/fire_emu_ddeba3f8836f9c9c.sock"}}
+[debug] [2024-07-26T15:27:20.858Z] [worker-us-central1-api-createUser-65c67f26-b52d-4b75-b07f-248630dedd20]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[worker-us-central1-api-createUser-65c67f26-b52d-4b75-b07f-248630dedd20]: IDLE"}}
+[debug] [2024-07-26T15:27:20.858Z] [worker-pool] submitRequest(triggerId=us-central1-api-createUser) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api-createUser)"}}
+[info] i  functions: Beginning execution of "us-central1-api-createUser" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"Beginning execution of \"us-central1-api-createUser\""}}
+[debug] [2024-07-26T15:27:20.858Z] [worker-us-central1-api-createUser-65c67f26-b52d-4b75-b07f-248630dedd20]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[worker-us-central1-api-createUser-65c67f26-b52d-4b75-b07f-248630dedd20]: BUSY"}}
+[debug] [2024-07-26T15:27:20.860Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-api-createUser" in 2.181084ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"Finished \"us-central1-api-createUser\" in 2.181084ms"}}
+[debug] [2024-07-26T15:27:20.861Z] [worker-us-central1-api-createUser-65c67f26-b52d-4b75-b07f-248630dedd20]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[worker-us-central1-api-createUser-65c67f26-b52d-4b75-b07f-248630dedd20]: IDLE"}}
+[debug] [2024-07-26T15:27:20.861Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-07-26T15:27:20.861Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-07-26T15:27:20.861Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-07-26T15:27:20.869Z] [work-queue] {"queuedWork":["/bet-picker/us-central1/api-createUser-2024-07-26T15:27:20.868Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-07-26T15:27:20.872Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/bet-picker/us-central1/api-createUser-2024-07-26T15:27:20.868Z"],"workRunningCount":1}
+[debug] [2024-07-26T15:27:20.872Z] Accepted request POST /bet-picker/us-central1/api-createUser --> us-central1-api-createUser
+[debug] [2024-07-26T15:27:20.873Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-07-26T15:27:20.873Z] [functions] Got req.url=/bet-picker/us-central1/api-createUser, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/bet-picker/us-central1/api-createUser, mapping to path=/"}}
+[debug] [2024-07-26T15:27:20.873Z] [worker-pool] submitRequest(triggerId=us-central1-api-createUser) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api-createUser)"}}
+[info] i  functions: Beginning execution of "us-central1-api-createUser" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"Beginning execution of \"us-central1-api-createUser\""}}
+[debug] [2024-07-26T15:27:20.873Z] [worker-us-central1-api-createUser-65c67f26-b52d-4b75-b07f-248630dedd20]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[worker-us-central1-api-createUser-65c67f26-b52d-4b75-b07f-248630dedd20]: BUSY"}}
+[info] >  {"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"DEBUG","message":"Callable request verification passed"} {"user":{"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"DEBUG","message":"Callable request verification passed"},"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"\u001b[90m> \u001b[39m {\"verifications\":{\"app\":\"MISSING\",\"auth\":\"MISSING\"},\"logging.googleapis.com/labels\":{\"firebase-log-type\":\"callable-request-verification\"},\"severity\":\"DEBUG\",\"message\":\"Callable request verification passed\"}"}}
+[debug] [2024-07-26T15:27:20.882Z] [runtime-status] [2624] No callable functions auth found {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[runtime-status] [2624] No callable functions auth found"}}
+[warn] ⚠  functions: The Firebase Authentication emulator is not running, so calls to Firebase Authentication will affect production. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"The Firebase Authentication emulator is not running, so calls to Firebase Authentication will affect production."}}
+[warn] ⚠  functions: The Cloud Firestore emulator is not running, so calls to Firestore will affect production. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"The Cloud Firestore emulator is not running, so calls to Firestore will affect production."}}
+[warn] ⚠  Google API requested!
+   - URL: "https://oauth2.googleapis.com/token"
+   - Be careful, this may be a production service. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"Google API requested!\n   - URL: \"https://oauth2.googleapis.com/token\"\n   - Be careful, this may be a production service."}}
+[debug] [2024-07-26T15:27:24.060Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-api-createUser" in 3186.7889999999998ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"Finished \"us-central1-api-createUser\" in 3186.7889999999998ms"}}
+[debug] [2024-07-26T15:27:24.061Z] [worker-us-central1-api-createUser-65c67f26-b52d-4b75-b07f-248630dedd20]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[worker-us-central1-api-createUser-65c67f26-b52d-4b75-b07f-248630dedd20]: IDLE"}}
+[debug] [2024-07-26T15:27:24.061Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-07-26T15:27:24.061Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-07-26T15:27:24.061Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-07-26T15:28:57.128Z] [work-queue] {"queuedWork":["/bet-picker/us-central1/api-createUser-2024-07-26T15:28:57.128Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-07-26T15:28:57.131Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/bet-picker/us-central1/api-createUser-2024-07-26T15:28:57.128Z"],"workRunningCount":1}
+[debug] [2024-07-26T15:28:57.131Z] Accepted request OPTIONS /bet-picker/us-central1/api-createUser --> us-central1-api-createUser
+[debug] [2024-07-26T15:28:57.141Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-07-26T15:28:57.141Z] [functions] Got req.url=/bet-picker/us-central1/api-createUser, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/bet-picker/us-central1/api-createUser, mapping to path=/"}}
+[debug] [2024-07-26T15:28:57.142Z] [worker-pool] submitRequest(triggerId=us-central1-api-createUser) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api-createUser)"}}
+[info] i  functions: Beginning execution of "us-central1-api-createUser" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"Beginning execution of \"us-central1-api-createUser\""}}
+[debug] [2024-07-26T15:28:57.143Z] [worker-us-central1-api-createUser-65c67f26-b52d-4b75-b07f-248630dedd20]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[worker-us-central1-api-createUser-65c67f26-b52d-4b75-b07f-248630dedd20]: BUSY"}}
+[debug] [2024-07-26T15:28:57.147Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-api-createUser" in 4.198959ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"Finished \"us-central1-api-createUser\" in 4.198959ms"}}
+[debug] [2024-07-26T15:28:57.147Z] [worker-us-central1-api-createUser-65c67f26-b52d-4b75-b07f-248630dedd20]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[worker-us-central1-api-createUser-65c67f26-b52d-4b75-b07f-248630dedd20]: IDLE"}}
+[debug] [2024-07-26T15:28:57.147Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-07-26T15:28:57.148Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-07-26T15:28:57.148Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-07-26T15:28:57.153Z] [work-queue] {"queuedWork":["/bet-picker/us-central1/api-createUser-2024-07-26T15:28:57.153Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-07-26T15:28:57.153Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/bet-picker/us-central1/api-createUser-2024-07-26T15:28:57.153Z"],"workRunningCount":1}
+[debug] [2024-07-26T15:28:57.153Z] Accepted request POST /bet-picker/us-central1/api-createUser --> us-central1-api-createUser
+[debug] [2024-07-26T15:28:57.155Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-07-26T15:28:57.155Z] [functions] Got req.url=/bet-picker/us-central1/api-createUser, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/bet-picker/us-central1/api-createUser, mapping to path=/"}}
+[debug] [2024-07-26T15:28:57.156Z] [worker-pool] submitRequest(triggerId=us-central1-api-createUser) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api-createUser)"}}
+[info] i  functions: Beginning execution of "us-central1-api-createUser" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"Beginning execution of \"us-central1-api-createUser\""}}
+[debug] [2024-07-26T15:28:57.156Z] [worker-us-central1-api-createUser-65c67f26-b52d-4b75-b07f-248630dedd20]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[worker-us-central1-api-createUser-65c67f26-b52d-4b75-b07f-248630dedd20]: BUSY"}}
+[info] >  {"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"DEBUG","message":"Callable request verification passed"} {"user":{"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"DEBUG","message":"Callable request verification passed"},"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"\u001b[90m> \u001b[39m {\"verifications\":{\"app\":\"MISSING\",\"auth\":\"MISSING\"},\"logging.googleapis.com/labels\":{\"firebase-log-type\":\"callable-request-verification\"},\"severity\":\"DEBUG\",\"message\":\"Callable request verification passed\"}"}}
+[debug] [2024-07-26T15:28:57.159Z] [runtime-status] [2624] No callable functions auth found {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[runtime-status] [2624] No callable functions auth found"}}
+[debug] [2024-07-26T15:28:58.733Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-api-createUser" in 1577.63275ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"Finished \"us-central1-api-createUser\" in 1577.63275ms"}}
+[debug] [2024-07-26T15:28:58.734Z] [worker-us-central1-api-createUser-65c67f26-b52d-4b75-b07f-248630dedd20]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"[worker-us-central1-api-createUser-65c67f26-b52d-4b75-b07f-248630dedd20]: IDLE"}}
+[debug] [2024-07-26T15:28:58.734Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-07-26T15:28:58.734Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api-createUser"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-07-26T15:28:58.734Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-07-26T16:08:06.867Z] ----------------------------------------------------------------------
+[debug] [2024-07-26T16:08:06.869Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Antonio\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions
+[debug] [2024-07-26T16:08:06.869Z] CLI Version:   13.13.3
+[debug] [2024-07-26T16:08:06.869Z] Platform:      win32
+[debug] [2024-07-26T16:08:06.869Z] Node Version:  v18.18.0
+[debug] [2024-07-26T16:08:06.870Z] Time:          Fri Jul 26 2024 18:08:06 GMT+0200 (Central European Summer Time)
+[debug] [2024-07-26T16:08:06.870Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-07-26T16:08:06.873Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2024-07-26T16:08:06.961Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-07-26T16:08:06.962Z] > authorizing via signed-in user (istvanovic.antonio1@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2024-07-26T16:08:06.970Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-07-26T16:08:06.970Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2024-07-26T16:08:06.975Z] [hub] writing locator at C:\Users\Antonio\AppData\Local\Temp\hub-bet-picker.json
+[debug] [2024-07-26T16:08:06.988Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-07-26T16:08:06.988Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-07-26T16:08:06.988Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2024-07-26T16:08:06.991Z] defaultcredentials: writing to file C:\Users\Antonio\AppData\Roaming\firebase\istvanovic_antonio1_gmail.com_application_default_credentials.json
+[debug] [2024-07-26T16:08:06.992Z] Setting GAC to C:\Users\Antonio\AppData\Roaming\firebase\istvanovic_antonio1_gmail.com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\Antonio\\AppData\\Roaming\\firebase\\istvanovic_antonio1_gmail.com_application_default_credentials.json"}}
+[debug] [2024-07-26T16:08:06.993Z] > refreshing access token with scopes: []
+[debug] [2024-07-26T16:08:06.994Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-07-26T16:08:06.994Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-07-26T16:08:07.204Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2024-07-26T16:08:07.204Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-07-26T16:08:07.205Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/bet-picker/adminSdkConfig [none]
+[debug] [2024-07-26T16:08:07.308Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-07-26T16:08:07.308Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2024-07-26T16:08:07.364Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/bet-picker/adminSdkConfig 401
+[debug] [2024-07-26T16:08:07.364Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/bet-picker/adminSdkConfig {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2024-07-26T16:08:07.365Z] Failed to get Admin SDK config for bet-picker, falling back to cache Failed to get Admin SDK for Firebase project bet-picker. Please make sure the project exists and your account has permission to access it. {"name":"FirebaseError","children":[],"exit":2,"message":"Failed to get Admin SDK for Firebase project bet-picker. Please make sure the project exists and your account has permission to access it.","original":{"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}},"response":{"statusCode":401}},"exit":1,"message":"HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":401},"status":500}
+[warn] !  functions: Unable to fetch project Admin SDK configuration, Admin SDK behavior in Cloud Functions emulator may be incorrect. {"metadata":{"emulator":{"name":"functions"},"message":"Unable to fetch project Admin SDK configuration, Admin SDK behavior in Cloud Functions emulator may be incorrect."}}
+[info] i  ui: downloading ui-v1.12.1.zip... {"metadata":{"emulator":{"name":"ui"},"message":"downloading ui-v1.12.1.zip..."}}
+[debug] [2024-07-26T16:08:07.376Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.12.1.zip 
+[debug] [2024-07-26T16:08:07.714Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.12.1.zip 200
+[debug] [2024-07-26T16:08:07.714Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.12.1.zip [stream]
+[debug] [2024-07-26T16:08:09.135Z] Data is 3498269
+[debug] [2024-07-26T16:08:09.135Z] [unzip] Entry: client/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2024-07-26T16:08:09.135Z] [unzip] Processing entry: client\
+[debug] [2024-07-26T16:08:09.135Z] [unzip] mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\
+[debug] [2024-07-26T16:08:09.136Z] [unzip] Entry: client/favicon.ico (compressed_size=2933 bytes, uncompressed_size=13294 bytes)
+[debug] [2024-07-26T16:08:09.137Z] [unzip] Processing entry: client\favicon.ico
+[debug] [2024-07-26T16:08:09.137Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client
+[debug] [2024-07-26T16:08:09.137Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\favicon.ico
+[debug] [2024-07-26T16:08:09.139Z] [unzip] Entry: client/mstile-150x150.png (compressed_size=2034 bytes, uncompressed_size=2034 bytes)
+[debug] [2024-07-26T16:08:09.139Z] [unzip] Processing entry: client\mstile-150x150.png
+[debug] [2024-07-26T16:08:09.140Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client
+[debug] [2024-07-26T16:08:09.140Z] [unzip] Writing file: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\mstile-150x150.png
+[debug] [2024-07-26T16:08:09.140Z] [unzip] Entry: client/favicon-16x16.png (compressed_size=293 bytes, uncompressed_size=293 bytes)
+[debug] [2024-07-26T16:08:09.141Z] [unzip] Processing entry: client\favicon-16x16.png
+[debug] [2024-07-26T16:08:09.141Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client
+[debug] [2024-07-26T16:08:09.141Z] [unzip] Writing file: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\favicon-16x16.png
+[debug] [2024-07-26T16:08:09.141Z] [unzip] Entry: client/favicon-32x32.png (compressed_size=475 bytes, uncompressed_size=475 bytes)
+[debug] [2024-07-26T16:08:09.141Z] [unzip] Processing entry: client\favicon-32x32.png
+[debug] [2024-07-26T16:08:09.141Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client
+[debug] [2024-07-26T16:08:09.142Z] [unzip] Writing file: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\favicon-32x32.png
+[debug] [2024-07-26T16:08:09.142Z] [unzip] Entry: client/manifest.json (compressed_size=245 bytes, uncompressed_size=551 bytes)
+[debug] [2024-07-26T16:08:09.142Z] [unzip] Processing entry: client\manifest.json
+[debug] [2024-07-26T16:08:09.142Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client
+[debug] [2024-07-26T16:08:09.143Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\manifest.json
+[debug] [2024-07-26T16:08:09.143Z] [unzip] Entry: client/index.html (compressed_size=1365 bytes, uncompressed_size=3071 bytes)
+[debug] [2024-07-26T16:08:09.143Z] [unzip] Processing entry: client\index.html
+[debug] [2024-07-26T16:08:09.143Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client
+[debug] [2024-07-26T16:08:09.144Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\index.html
+[debug] [2024-07-26T16:08:09.144Z] [unzip] Entry: client/robots.txt (compressed_size=26 bytes, uncompressed_size=26 bytes)
+[debug] [2024-07-26T16:08:09.145Z] [unzip] Processing entry: client\robots.txt
+[debug] [2024-07-26T16:08:09.145Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client
+[debug] [2024-07-26T16:08:09.145Z] [unzip] Writing file: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\robots.txt
+[debug] [2024-07-26T16:08:09.145Z] [unzip] Entry: client/android-chrome-512x512.png (compressed_size=5369 bytes, uncompressed_size=5411 bytes)
+[debug] [2024-07-26T16:08:09.145Z] [unzip] Processing entry: client\android-chrome-512x512.png
+[debug] [2024-07-26T16:08:09.145Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client
+[debug] [2024-07-26T16:08:09.146Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\android-chrome-512x512.png
+[debug] [2024-07-26T16:08:09.147Z] [unzip] Entry: client/assets/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2024-07-26T16:08:09.147Z] [unzip] Processing entry: client\assets\
+[debug] [2024-07-26T16:08:09.147Z] [unzip] mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\
+[debug] [2024-07-26T16:08:09.147Z] [unzip] Entry: client/assets/img/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2024-07-26T16:08:09.147Z] [unzip] Processing entry: client\assets\img\
+[debug] [2024-07-26T16:08:09.147Z] [unzip] mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\img\
+[debug] [2024-07-26T16:08:09.147Z] [unzip] Entry: client/assets/img/database.png (compressed_size=29449 bytes, uncompressed_size=29988 bytes)
+[debug] [2024-07-26T16:08:09.147Z] [unzip] Processing entry: client\assets\img\database.png
+[debug] [2024-07-26T16:08:09.147Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\img
+[debug] [2024-07-26T16:08:09.148Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\img\database.png
+[debug] [2024-07-26T16:08:09.149Z] [unzip] Entry: client/assets/provider-icons/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2024-07-26T16:08:09.149Z] [unzip] Processing entry: client\assets\provider-icons\
+[debug] [2024-07-26T16:08:09.149Z] [unzip] mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons\
+[debug] [2024-07-26T16:08:09.149Z] [unzip] Entry: client/assets/provider-icons/auth_service_play_games.svg (compressed_size=565 bytes, uncompressed_size=1173 bytes)
+[debug] [2024-07-26T16:08:09.149Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_play_games.svg
+[debug] [2024-07-26T16:08:09.149Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons
+[debug] [2024-07-26T16:08:09.149Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons\auth_service_play_games.svg
+[debug] [2024-07-26T16:08:09.150Z] [unzip] Entry: client/assets/provider-icons/auth_service_game_center.svg (compressed_size=991 bytes, uncompressed_size=3921 bytes)
+[debug] [2024-07-26T16:08:09.150Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_game_center.svg
+[debug] [2024-07-26T16:08:09.150Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons
+[debug] [2024-07-26T16:08:09.151Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons\auth_service_game_center.svg
+[debug] [2024-07-26T16:08:09.151Z] [unzip] Entry: client/assets/provider-icons/auth_service_google.svg (compressed_size=409 bytes, uncompressed_size=720 bytes)
+[debug] [2024-07-26T16:08:09.151Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_google.svg
+[debug] [2024-07-26T16:08:09.151Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons
+[debug] [2024-07-26T16:08:09.152Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons\auth_service_google.svg
+[debug] [2024-07-26T16:08:09.152Z] [unzip] Entry: client/assets/provider-icons/auth_service_yahoo.svg (compressed_size=577 bytes, uncompressed_size=1182 bytes)
+[debug] [2024-07-26T16:08:09.152Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_yahoo.svg
+[debug] [2024-07-26T16:08:09.152Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons
+[debug] [2024-07-26T16:08:09.153Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons\auth_service_yahoo.svg
+[debug] [2024-07-26T16:08:09.154Z] [unzip] Entry: client/assets/provider-icons/auth_service_email.svg (compressed_size=228 bytes, uncompressed_size=326 bytes)
+[debug] [2024-07-26T16:08:09.154Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_email.svg
+[debug] [2024-07-26T16:08:09.154Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons
+[debug] [2024-07-26T16:08:09.154Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons\auth_service_email.svg
+[debug] [2024-07-26T16:08:09.155Z] [unzip] Entry: client/assets/provider-icons/auth_service_saml.svg (compressed_size=575 bytes, uncompressed_size=1226 bytes)
+[debug] [2024-07-26T16:08:09.155Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_saml.svg
+[debug] [2024-07-26T16:08:09.155Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons
+[debug] [2024-07-26T16:08:09.155Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons\auth_service_saml.svg
+[debug] [2024-07-26T16:08:09.156Z] [unzip] Entry: client/assets/provider-icons/auth_service_oidc.svg (compressed_size=414 bytes, uncompressed_size=858 bytes)
+[debug] [2024-07-26T16:08:09.156Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_oidc.svg
+[debug] [2024-07-26T16:08:09.156Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons
+[debug] [2024-07-26T16:08:09.156Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons\auth_service_oidc.svg
+[debug] [2024-07-26T16:08:09.157Z] [unzip] Entry: client/assets/provider-icons/auth_service_facebook.svg (compressed_size=289 bytes, uncompressed_size=457 bytes)
+[debug] [2024-07-26T16:08:09.157Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_facebook.svg
+[debug] [2024-07-26T16:08:09.157Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons
+[debug] [2024-07-26T16:08:09.157Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons\auth_service_facebook.svg
+[debug] [2024-07-26T16:08:09.158Z] [unzip] Entry: client/assets/provider-icons/auth_service_github.svg (compressed_size=466 bytes, uncompressed_size=838 bytes)
+[debug] [2024-07-26T16:08:09.158Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_github.svg
+[debug] [2024-07-26T16:08:09.158Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons
+[debug] [2024-07-26T16:08:09.158Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons\auth_service_github.svg
+[debug] [2024-07-26T16:08:09.159Z] [unzip] Entry: client/assets/provider-icons/auth_service_phone.svg (compressed_size=261 bytes, uncompressed_size=414 bytes)
+[debug] [2024-07-26T16:08:09.159Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_phone.svg
+[debug] [2024-07-26T16:08:09.159Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons
+[debug] [2024-07-26T16:08:09.159Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons\auth_service_phone.svg
+[debug] [2024-07-26T16:08:09.160Z] [unzip] Entry: client/assets/provider-icons/auth_service_apple.svg (compressed_size=230 bytes, uncompressed_size=334 bytes)
+[debug] [2024-07-26T16:08:09.160Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_apple.svg
+[debug] [2024-07-26T16:08:09.160Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons
+[debug] [2024-07-26T16:08:09.160Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons\auth_service_apple.svg
+[debug] [2024-07-26T16:08:09.161Z] [unzip] Entry: client/assets/provider-icons/auth_service_twitter.svg (compressed_size=444 bytes, uncompressed_size=751 bytes)
+[debug] [2024-07-26T16:08:09.161Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_twitter.svg
+[debug] [2024-07-26T16:08:09.161Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons
+[debug] [2024-07-26T16:08:09.161Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons\auth_service_twitter.svg
+[debug] [2024-07-26T16:08:09.161Z] [unzip] Entry: client/assets/provider-icons/auth_service_mslive.svg (compressed_size=203 bytes, uncompressed_size=378 bytes)
+[debug] [2024-07-26T16:08:09.162Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_mslive.svg
+[debug] [2024-07-26T16:08:09.162Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons
+[debug] [2024-07-26T16:08:09.162Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\provider-icons\auth_service_mslive.svg
+[debug] [2024-07-26T16:08:09.162Z] [unzip] Entry: client/assets/extensions/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2024-07-26T16:08:09.162Z] [unzip] Processing entry: client\assets\extensions\
+[debug] [2024-07-26T16:08:09.162Z] [unzip] mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\extensions\
+[debug] [2024-07-26T16:08:09.163Z] [unzip] Entry: client/assets/extensions/default-extension.png (compressed_size=1646 bytes, uncompressed_size=1657 bytes)
+[debug] [2024-07-26T16:08:09.163Z] [unzip] Processing entry: client\assets\extensions\default-extension.png
+[debug] [2024-07-26T16:08:09.163Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\extensions
+[debug] [2024-07-26T16:08:09.163Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\extensions\default-extension.png
+[debug] [2024-07-26T16:08:09.164Z] [unzip] Entry: client/assets/index-Cj5I7867.css (compressed_size=35786 bytes, uncompressed_size=297937 bytes)
+[debug] [2024-07-26T16:08:09.164Z] [unzip] Processing entry: client\assets\index-Cj5I7867.css
+[debug] [2024-07-26T16:08:09.164Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets
+[debug] [2024-07-26T16:08:09.164Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\index-Cj5I7867.css
+[debug] [2024-07-26T16:08:09.165Z] [unzip] Entry: client/assets/index-JXEx31eZ.js (compressed_size=563896 bytes, uncompressed_size=2020866 bytes)
+[debug] [2024-07-26T16:08:09.165Z] [unzip] Processing entry: client\assets\index-JXEx31eZ.js
+[debug] [2024-07-26T16:08:09.165Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets
+[debug] [2024-07-26T16:08:09.165Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\index-JXEx31eZ.js
+[debug] [2024-07-26T16:08:09.173Z] [unzip] Entry: client/assets/index-JXEx31eZ.js.map (compressed_size=2229196 bytes, uncompressed_size=9596104 bytes)
+[debug] [2024-07-26T16:08:09.173Z] [unzip] Processing entry: client\assets\index-JXEx31eZ.js.map
+[debug] [2024-07-26T16:08:09.173Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets
+[debug] [2024-07-26T16:08:09.174Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\assets\index-JXEx31eZ.js.map
+[debug] [2024-07-26T16:08:09.205Z] [unzip] Entry: client/safari-pinned-tab.svg (compressed_size=1433 bytes, uncompressed_size=2611 bytes)
+[debug] [2024-07-26T16:08:09.205Z] [unzip] Processing entry: client\safari-pinned-tab.svg
+[debug] [2024-07-26T16:08:09.205Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client
+[debug] [2024-07-26T16:08:09.205Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\safari-pinned-tab.svg
+[debug] [2024-07-26T16:08:09.206Z] [unzip] Entry: client/browserconfig.xml (compressed_size=491 bytes, uncompressed_size=822 bytes)
+[debug] [2024-07-26T16:08:09.206Z] [unzip] Processing entry: client\browserconfig.xml
+[debug] [2024-07-26T16:08:09.206Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client
+[debug] [2024-07-26T16:08:09.206Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\browserconfig.xml
+[debug] [2024-07-26T16:08:09.208Z] [unzip] Entry: client/android-chrome-192x192.png (compressed_size=2684 bytes, uncompressed_size=2684 bytes)
+[debug] [2024-07-26T16:08:09.208Z] [unzip] Processing entry: client\android-chrome-192x192.png
+[debug] [2024-07-26T16:08:09.208Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client
+[debug] [2024-07-26T16:08:09.208Z] [unzip] Writing file: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\android-chrome-192x192.png
+[debug] [2024-07-26T16:08:09.208Z] [unzip] Entry: client/apple-touch-icon.png (compressed_size=2123 bytes, uncompressed_size=2152 bytes)
+[debug] [2024-07-26T16:08:09.209Z] [unzip] Processing entry: client\apple-touch-icon.png
+[debug] [2024-07-26T16:08:09.209Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client
+[debug] [2024-07-26T16:08:09.209Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\client\apple-touch-icon.png
+[debug] [2024-07-26T16:08:09.209Z] [unzip] Entry: server/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2024-07-26T16:08:09.209Z] [unzip] Processing entry: server\
+[debug] [2024-07-26T16:08:09.209Z] [unzip] mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\server\
+[debug] [2024-07-26T16:08:09.210Z] [unzip] Entry: server/server.mjs.map (compressed_size=286219 bytes, uncompressed_size=1310517 bytes)
+[debug] [2024-07-26T16:08:09.210Z] [unzip] Processing entry: server\server.mjs.map
+[debug] [2024-07-26T16:08:09.210Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\server
+[debug] [2024-07-26T16:08:09.210Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\server\server.mjs.map
+[debug] [2024-07-26T16:08:09.214Z] [unzip] Entry: server/assets/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2024-07-26T16:08:09.215Z] [unzip] Processing entry: server\assets\
+[debug] [2024-07-26T16:08:09.215Z] [unzip] mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\server\assets\
+[debug] [2024-07-26T16:08:09.215Z] [unzip] Entry: server/assets/multipart-parser-n20ATYm_.mjs.map (compressed_size=4790 bytes, uncompressed_size=17920 bytes)
+[debug] [2024-07-26T16:08:09.215Z] [unzip] Processing entry: server\assets\multipart-parser-n20ATYm_.mjs.map
+[debug] [2024-07-26T16:08:09.215Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\server\assets
+[debug] [2024-07-26T16:08:09.215Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\server\assets\multipart-parser-n20ATYm_.mjs.map
+[debug] [2024-07-26T16:08:09.216Z] [unzip] Entry: server/assets/multipart-parser-n20ATYm_.mjs (compressed_size=2625 bytes, uncompressed_size=10428 bytes)
+[debug] [2024-07-26T16:08:09.216Z] [unzip] Processing entry: server\assets\multipart-parser-n20ATYm_.mjs
+[debug] [2024-07-26T16:08:09.216Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\server\assets
+[debug] [2024-07-26T16:08:09.216Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\server\assets\multipart-parser-n20ATYm_.mjs
+[debug] [2024-07-26T16:08:09.217Z] [unzip] Entry: server/server.mjs (compressed_size=311497 bytes, uncompressed_size=1147307 bytes)
+[debug] [2024-07-26T16:08:09.217Z] [unzip] Processing entry: server\server.mjs
+[debug] [2024-07-26T16:08:09.217Z] [unzip] else mkdir: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\server
+[debug] [2024-07-26T16:08:09.217Z] [unzip] deflating: C:\Users\Antonio\.cache\firebase\emulators\ui-v1.12.1\server\server.mjs
+[info] i  ui: Removing outdated emulator files: ui-v1.11.7 {"metadata":{"emulator":{"name":"ui"},"message":"Removing outdated emulator files: ui-v1.11.7"}}
+[info] i  ui: Removing outdated emulator files: ui-v1.11.7.zip {"metadata":{"emulator":{"name":"ui"},"message":"Removing outdated emulator files: ui-v1.11.7.zip"}}
+[debug] [2024-07-26T16:08:09.239Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-07-26T16:08:09.239Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2024-07-26T16:08:09.239Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\Antonio\\.cache\\firebase\\emulators\\ui-v1.12.1\\server\\server.mjs"],"optionalArgs":[],"joinArgs":false,"shell":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\Antonio\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.12.1\\\\server\\\\server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false,\"shell\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2024-07-26T16:08:09.355Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2024-07-26T16:08:09.355Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] i  functions: Watching "C:\Users\Antonio\istva\Desktop\Fakultet\moji_materijali_mathos\treca_godina_antonio\zavrsni\bet-picker\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\Antonio\\istva\\Desktop\\Fakultet\\moji_materijali_mathos\\treca_godina_antonio\\zavrsni\\bet-picker\\functions\" for Cloud Functions..."}}
+[debug] [2024-07-26T16:08:09.468Z] Validating nodejs source
+[debug] [2024-07-26T16:08:10.798Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^12.2.0",
+    "firebase-functions": "^5.0.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.25.4",
+    "firebase-functions-test": "^3.1.0",
+    "typescript": "^4.9.0"
+  },
+  "private": true
+}
+[debug] [2024-07-26T16:08:10.798Z] Building nodejs source
+[debug] [2024-07-26T16:08:10.799Z] Failed to find version of module node: reached end of search path C:\Users\Antonio\istva\Desktop\Fakultet\moji_materijali_mathos\treca_godina_antonio\zavrsni\bet-picker\functions\node_modules
+[warn] !  functions: Your requested "node" version "20" doesn't match your global version "18". Using node@18 from host. 
+[debug] [2024-07-26T16:08:10.801Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-07-26T16:08:10.805Z] Found firebase-functions binary at 'C:\Users\Antonio\istva\Desktop\Fakultet\moji_materijali_mathos\treca_godina_antonio\zavrsni\bet-picker\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8676
+
+[debug] [2024-07-26T16:08:11.326Z] Got response from /__/functions.yaml {"endpoints":{"api-createUser":{"platform":"gcfv1","labels":{},"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"region":["us-central1"],"callableTrigger":{},"entryPoint":"api.createUser"},"api-userDocumentDelete":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"region":["us-central1"],"eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.delete","eventFilters":{"resource":"projects/bet-picker/databases/(default)/documents/users/{documentId}"},"retry":false},"labels":{},"entryPoint":"api.userDocumentDelete"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[info] +  functions: Loaded functions definitions from source: api.createUser, api.userDocumentDelete. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: api.createUser, api.userDocumentDelete."}}
+[info] +  functions[us-central1-api-createUser]: http function initialized (http://127.0.0.1:5001/bet-picker/us-central1/api-createUser). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/bet-picker/us-central1/api-createUser)."}}
+[info] i  functions[us-central1-api-userDocumentDelete]: function ignored because the firestore emulator does not exist or is not running. {"metadata":{"emulator":{"name":"functions"},"message":"function ignored because the firestore emulator does not exist or is not running."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 

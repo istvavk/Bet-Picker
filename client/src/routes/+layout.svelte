@@ -1,10 +1,10 @@
 <script lang="ts">
   import "../app.css";
-  import {navigating, page} from "$app/stores";
-  import {browser} from "$app/environment";
-  import {goto} from "$app/navigation";
-  import {writableToPromise} from "$lib/writable";
-  import {authUser} from "$lib/state";
+  import { navigating, page } from "$app/stores";
+  import { browser } from "$app/environment";
+  import { goto } from "$app/navigation";
+  import { writableToPromise } from "$lib/writable";
+  import { authUser } from "$lib/state";
 
   const PUBLIC_ROUTES = [];
   const UNAUTHENTICATED_ROUTES = [
@@ -22,18 +22,14 @@
   async function checkRoute() {
     loading = true;
 
-    console.log(1, loading);
-
     const route = $page?.route?.id;
 
     if (!route) {
-      console.log(2, route);
       loading = false;
       return;
     }
 
     if (PUBLIC_ROUTES.includes(route)) {
-      console.log(3, route);
       loading = false;
       return;
     }
@@ -43,24 +39,20 @@
 
     if (isUnauthenticatedRoute) {
       if (isAuthenticated) {
-        console.log(4, route);
         await goto('/');
         return;
       }
 
-      console.log(5, route);
       loading = false;
       return;
     }
 
     if (!isAuthenticated) {
-      console.log(6, route);
       await goto('/sign-in');
       loading = false;
       return;
     }
 
-    console.log(7, route);
     loading = false;
   }
 </script>

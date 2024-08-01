@@ -1,7 +1,8 @@
 <script lang="ts">
   import {Button, Input, Label} from "flowbite-svelte";
   import {auth, firebase} from "$lib/firebase";
-  import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+  import toast, { Toaster } from 'svelte-french-toast';
+  import {onMount} from "svelte";
 
   let form = {
     email: '',
@@ -15,16 +16,10 @@
 
     await auth.signInWithEmailAndPassword(form.email, form.password).then(() => {
       console.log('Signed in');
+      toast.success("Signed in successfully");
     }).catch((error) => {
       console.error(error);
-    });
-  }
-
-  async function signInWithGoogle() {
-    await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(() => {
-      console.log('Signed in with Google');
-    }).catch((error) => {
-      console.error(error);
+      toast.error("Wrong email or password")
     });
   }
 </script>
@@ -32,6 +27,8 @@
 <svelte:head>
     <title>Bet Picker</title>
 </svelte:head>
+
+<Toaster />
 
 <div class="flex justify-center items-center">
     <div class="login-form w-96 my-24 border-solid border-2 border-gray-200">

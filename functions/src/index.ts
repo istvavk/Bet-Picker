@@ -1,14 +1,17 @@
-import * as admin from "firebase-admin";
-import {createUser} from "./callable/create-user";
-import {userDocumentDelete} from "./triggers/user-document-delete";
+import './init';
 
-admin.initializeApp();
+import { createUser } from "./callable/create-user";
+import { userDocumentDelete } from "./triggers/user-document-delete";
+import { getOdds } from "./callable/get-odds";
+import { getCSV } from "./callable/get-csv";
 
 export const api = {
   /**
    * Callable
    */
   createUser,
+  getOdds,
+  getCSV,
   /**
    * Triggers
    */

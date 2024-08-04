@@ -20,7 +20,7 @@ import {
   setPersistence,
   signInWithEmailAndPassword,
   signInWithPopup,
-  onAuthStateChanged
+  onAuthStateChanged,
 } from 'firebase/auth';
 import { getFunctions, connectFunctionsEmulator, httpsCallable } from 'firebase/functions';
 
@@ -143,6 +143,10 @@ class Functions {
 export const auth = new Auth();
 export const firestore = new Firestore(firebaseFirestore);
 export const functions = new Functions();
+
+if (dev) {
+  connectFunctionsEmulator(functions, '127.0.0.1', 5001);
+}
 
 if (browser) {
   onAuthStateChanged(firebaseAuth, (user) => {

@@ -16,7 +16,7 @@ export async function fetchOdds(sport: string) {
     console.log('Response:', response.data);
 
     const odds = response.data.map((odd: any) => {
-      const bookmaker = odd.bookmakers?.[0]; // Provjerava postoji li prvi bookmaker
+      const bookmaker = odd.bookmakers?.[0]; // provjerava postoji li prvi bookmaker
       if (!bookmaker) return { home_team: odd.home_team, away_team: odd.away_team, home_odds: 'N/A', draw_odds: 'N/A', away_odds: 'N/A' };
 
       const homeOdds = bookmaker.markets?.[0]?.outcomes.find((o: any) => normalizeTeamName(o.name) === normalizeTeamName(odd.home_team))?.price;

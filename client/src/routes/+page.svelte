@@ -4,39 +4,45 @@
   import { toast, Toaster } from 'svelte-french-toast';
   import { preprocessData } from '$lib/preprocessData';
   import { identifyValueBets } from '$lib/valueBets';
+  import { Button, Label, Select, Table, TableBody, TableBodyCell, TableBodyRow, TableHead, TableHeadCell } from 'flowbite-svelte';
+  import { auth } from '$lib/firebase';
 
   let odds: any[] = [];
   let csvData: any[] = [];
-  let sport = 'soccer';
   let loadingOdds = true;
   let loadingCsv = true;
-  let valueBets: any[] = [];
+  let valueBetsPoisson: any[] = [];
+  let valueBetsDC: any[] = [];
+  let selectedModel = 'poisson';
+  const rho = 0.1; // parametar za Dixon-Coles model
 
-  onMount(async () => {
+  const models = [
+    { value: 'poisson', name: 'Poisson Model' },
+    { value: 'dixon-coles', name: 'Dixon-Coles Model' },
+  ];
+
+  // recalculate value bets when the model is changed
+  $: currentValueBets = selectedModel === 'poisson' ? valueBetsPoisson : valueBetsDC;
+
+
+  async function loadData() {
     try {
-      console.log('onMount called');
+      console.log('Loading data...');
 
-      // Fetching odds
-      odds = await fetchOdds(sport);
+
+      odds = await fetchOdds('soccer');
       console.log('Odds fetched:', odds);
       toast.success('Odds fetched successfully');
 
-      // Fetching CSV data
+
       const rawData = await fetchCSVData();
       csvData = preprocessData(rawData);
       console.log('CSV Data fetched:', csvData);
       toast.success('CSV data fetched successfully');
 
-      // Calculate averages for Poisson model
-      const avgGoalsHome = csvData.length > 0 ? csvData.reduce((sum, game) => sum + game.goals_home, 0) / csvData.length : 0;
-      const avgGoalsAway = csvData.length > 0 ? csvData.reduce((sum, game) => sum + game.goals_away, 0) / csvData.length : 0;
-
-      console.log('Average Goals Home:', avgGoalsHome);
-      console.log('Average Goals Away:', avgGoalsAway);
-
-      // Identify value bets
-      valueBets = identifyValueBets(odds, csvData, avgGoalsHome, avgGoalsAway, 0.1);
-      console.log('Value Bets:', valueBets);
+      // identify value bets for both models
+      valueBetsPoisson = identifyValueBets(odds, csvData, 0); // poisson model, rho = 0
+      valueBetsDC = identifyValueBets(odds, csvData, rho);
 
     } catch (error) {
       toast.error('Failed to fetch data');
@@ -45,44 +51,97 @@
       loadingOdds = false;
       loadingCsv = false;
     }
+  }
+
+  // get probabilities based on the selected model
+  function getModelProbabilities(bet) {
+    if (selectedModel === 'poisson') {
+      return {
+        home: bet.modelProbHome,
+        draw: bet.modelProbDraw,
+        away: bet.modelProbAway,
+      };
+    } else {
+      return {
+        home: bet.dcModelProbHome,
+        draw: bet.dcModelProbDraw,
+        away: bet.dcModelProbAway,
+      };
+    }
+  }
+
+  function getSelectedModelName() {
+    return models.find(model => model.value === selectedModel)?.name || 'Model';
+  }
+
+  onMount(async () => {
+    await loadData();
   });
 </script>
 
 <Toaster />
 
-<!-- Displaying odds -->
-{#if loadingOdds}
-    <p>Loading odds...</p>
-{:else}
-    {#if odds.length > 0}
-        <h2>Odds</h2>
-        <ul>
-            {#each odds as odd}
-                <li>{odd.home_team} vs {odd.away_team}: Home {odd.home_odds}, Draw {odd.draw_odds}, Away {odd.away_odds}</li>
-            {/each}
-        </ul>
-    {:else}
-        <p>No odds available</p>
-    {/if}
-{/if}
+<div class="container mx-auto px-4 py-8">
+    <div class="flex justify-between items-center mb-8">
+        <h1 class="text-3xl font-bold text-gray-800">Bet Picker - Dashboard</h1>
+        <div class="flex items-center space-x-4">
+            <Label class="flex items-center space-x-2">
+                <span class="text-lg font-semibold text-gray-600">Select Model:</span>
+                <Select items={models} bind:value={selectedModel} />
+            </Label>
+            <Button on:click={() => auth.signOut()} class="ml-4">Logout</Button>
+        </div>
+    </div>
 
-<!-- Displaying value bets -->
-{#if loadingCsv}
-    <p>Loading CSV data...</p>
-{:else}
-    {#if valueBets.length > 0}
-        <h2>Value Bets</h2>
-        <ul>
-            {#each valueBets as bet}
-                <li>
-                    {bet.home_team} vs {bet.away_team}:
-                    Home {bet.home_odds} (Model: {bet.modelProbHome.toFixed(2)}, DC Model: {bet.dcModelProbHome.toFixed(2)}),
-                    Draw {bet.draw_odds} (Model: {bet.modelProbDraw.toFixed(2)}, DC Model: {bet.dcModelProbDraw.toFixed(2)}),
-                    Away {bet.away_odds} (Model: {bet.modelProbAway.toFixed(2)}, DC Model: {bet.dcModelProbAway.toFixed(2)})
-                </li>
-            {/each}
-        </ul>
+    {#if loadingOdds}
+        <p class="text-lg text-gray-500">Loading odds...</p>
+    {:else if odds.length > 0}
+        <Table shadow class="w-full">
+            <TableHead class="bg-gray-200">
+                <TableHeadCell class="py-3 px-5">Home Team</TableHeadCell>
+                <TableHeadCell class="py-3 px-5">Away Team</TableHeadCell>
+                <TableHeadCell class="py-3 px-5">Home Odds</TableHeadCell>
+                <TableHeadCell class="py-3 px-5">Draw Odds</TableHeadCell>
+                <TableHeadCell class="py-3 px-5">Away Odds</TableHeadCell>
+            </TableHead>
+            <TableBody tableBodyClass="divide-y divide-gray-300">
+                {#each odds as odd}
+                    <TableBodyRow class="hover:bg-gray-100">
+                        <TableBodyCell class="py-3 px-5">{odd.home_team}</TableBodyCell>
+                        <TableBodyCell class="py-3 px-5">{odd.away_team}</TableBodyCell>
+                        <TableBodyCell class="py-3 px-5">{odd.home_odds}</TableBodyCell>
+                        <TableBodyCell class="py-3 px-5">{odd.draw_odds}</TableBodyCell>
+                        <TableBodyCell class="py-3 px-5">{odd.away_odds}</TableBodyCell>
+                    </TableBodyRow>
+                {/each}
+            </TableBody>
+        </Table>
     {:else}
-        <p>No value bets found</p>
+        <p class="text-lg text-gray-500">No odds available</p>
     {/if}
-{/if}
+
+    <h2 class="mt-12 text-2xl font-bold text-gray-800">Value Bets ({getSelectedModelName()})</h2>
+
+    {#if loadingCsv}
+        <p class="text-lg text-gray-500">Loading CSV data...</p>
+    {:else if currentValueBets.length > 0}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            {#each currentValueBets as bet}
+                <div class="bg-white shadow-md rounded-lg p-4">
+                    <h3 class="text-lg font-semibold text-gray-700">{bet.home_team} vs {bet.away_team}</h3>
+                    <p class="mt-2 text-gray-600">
+                        <strong>Home Probability ({getSelectedModelName()}):</strong> {getModelProbabilities(bet).home.toFixed(2)}
+                    </p>
+                    <p class="mt-1 text-gray-600">
+                        <strong>Draw Probability ({getSelectedModelName()}):</strong> {getModelProbabilities(bet).draw.toFixed(2)}
+                    </p>
+                    <p class="mt-1 text-gray-600">
+                        <strong>Away Probability ({getSelectedModelName()}):</strong> {getModelProbabilities(bet).away.toFixed(2)}
+                    </p>
+                </div>
+            {/each}
+        </div>
+    {:else}
+        <p class="text-lg text-gray-500">No value bets found</p>
+    {/if}
+</div>

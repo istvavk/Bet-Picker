@@ -43,9 +43,9 @@ export const getOdds = functions.https.onRequest((req, res) => {
               {
                 key: 'h2h',
                 outcomes: [
-                  { name: 'Bayern Munchen', price: 1.50 },
+                  { name: 'Bayern Munchen', price: 3.5 },
                   { name: 'Draw', price: 3.75 },
-                  { name: 'Borussia Dortmund', price: 6.00 }
+                  { name: 'Borussia Dortmund', price: 1.2 }
                 ]
               }
             ]
@@ -53,7 +53,31 @@ export const getOdds = functions.https.onRequest((req, res) => {
         ]
       };
 
-      oddsData.push(demoMatch);
+      const demoMatch2 = {
+        id: 'demo-match-2',
+        sport_key: 'soccer_germany_bundesliga1',
+        commence_time: '2024-08-09T20:00:00Z',
+        home_team: 'FC Schalke 04',
+        away_team: 'Hamburger SV',
+        bookmakers: [
+          {
+            key: 'demo_bookmaker',
+            title: 'Demo Bookmaker',
+            markets: [
+              {
+                key: 'h2h',
+                outcomes: [
+                  { name: 'FC Schalke 04', price: 2.8 },
+                  { name: 'Draw', price: 6 },
+                  { name: 'Hamburger SV', price: 12 }
+                ]
+              }
+            ]
+          }
+        ]
+      };
+
+      oddsData.push(demoMatch, demoMatch2);
 
       res.status(200).send(oddsData);
     } catch (error) {

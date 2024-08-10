@@ -13,36 +13,34 @@
   let loadingCsv = true;
   let valueBetsPoisson: any[] = [];
   let valueBetsDC: any[] = [];
-  let selectedModel = 'poisson';
+  let selectedModel = 'Poisson';
   const rho = 0.1; // parametar za Dixon-Coles model
 
   const models = [
-    { value: 'poisson', name: 'Poisson Model' },
-    { value: 'dixon-coles', name: 'Dixon-Coles Model' },
+    { value: 'Poisson', name: 'Poisson Model' },
+    { value: 'Dixon-Coles', name: 'Dixon-Coles Model' },
   ];
 
   // recalculate value bets when the model is changed
-  $: currentValueBets = selectedModel === 'poisson' ? valueBetsPoisson : valueBetsDC;
+  $: currentValueBets = selectedModel === 'Poisson' ? valueBetsPoisson : valueBetsDC;
 
 
   async function loadData() {
     try {
       console.log('Loading data...');
 
-
       odds = await fetchOdds('soccer');
       console.log('Odds fetched:', odds);
       toast.success('Odds fetched successfully');
-
 
       const rawData = await fetchCSVData();
       csvData = preprocessData(rawData);
       console.log('CSV Data fetched:', csvData);
       toast.success('CSV data fetched successfully');
 
-      // identify value bets for both models
-      valueBetsPoisson = identifyValueBets(odds, csvData, 0); // poisson model, rho = 0
-      valueBetsDC = identifyValueBets(odds, csvData, rho);
+      // Identify value bets for both models
+      valueBetsPoisson = identifyValueBets(odds, csvData, 0); // Poisson model, rho = 0
+      valueBetsDC = identifyValueBets(odds, csvData, rho); // Dixon-Coles model
 
     } catch (error) {
       toast.error('Failed to fetch data');
@@ -53,9 +51,10 @@
     }
   }
 
-  // get probabilities based on the selected model
+  // dohvati vjerojatnosti za odredeni model
   function getModelProbabilities(bet) {
-    if (selectedModel === 'poisson') {
+    console.log("Current Bet Data for", selectedModel, ":", bet);
+    if (selectedModel === 'Poisson') {
       return {
         home: bet.modelProbHome,
         draw: bet.modelProbDraw,
@@ -68,10 +67,6 @@
         away: bet.dcModelProbAway,
       };
     }
-  }
-
-  function getSelectedModelName() {
-    return models.find(model => model.value === selectedModel)?.name || 'Model';
   }
 
   onMount(async () => {
@@ -120,7 +115,7 @@
         <p class="text-lg text-gray-500">No odds available</p>
     {/if}
 
-    <h2 class="mt-12 text-2xl font-bold text-gray-800">Value Bets ({getSelectedModelName()})</h2>
+    <h2 class="mt-12 text-2xl font-bold text-gray-800">Value Bets ({selectedModel})</h2>
 
     {#if loadingCsv}
         <p class="text-lg text-gray-500">Loading CSV data...</p>
@@ -130,13 +125,15 @@
                 <div class="bg-white shadow-md rounded-lg p-4">
                     <h3 class="text-lg font-semibold text-gray-700">{bet.home_team} vs {bet.away_team}</h3>
                     <p class="mt-2 text-gray-600">
-                        <strong>Home Probability ({getSelectedModelName()}):</strong> {getModelProbabilities(bet).home.toFixed(2)}
+                    </p>
+                    <p class="mt-2 text-gray-600">
+                        <strong>Home Probability ({selectedModel}):</strong> {getModelProbabilities(bet).home.toFixed(2)}
                     </p>
                     <p class="mt-1 text-gray-600">
-                        <strong>Draw Probability ({getSelectedModelName()}):</strong> {getModelProbabilities(bet).draw.toFixed(2)}
+                        <strong>Draw Probability ({selectedModel}):</strong> {getModelProbabilities(bet).draw.toFixed(2)}
                     </p>
                     <p class="mt-1 text-gray-600">
-                        <strong>Away Probability ({getSelectedModelName()}):</strong> {getModelProbabilities(bet).away.toFixed(2)}
+                        <strong>Away Probability ({selectedModel}):</strong> {getModelProbabilities(bet).away.toFixed(2)}
                     </p>
                 </div>
             {/each}

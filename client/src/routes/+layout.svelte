@@ -58,9 +58,15 @@
 </script>
 
 {#if loading}
-    <div class="flex justify-center items-center w-full h-full">
-        <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-32 w-32"></div>
+    <div class="flex justify-center items-center w-full h-screen">
+        <div class="loader ease-linear rounded-full border-4 border-t-4 border-orange-500 h-16 w-16 animate-spin"></div>
     </div>
 {:else}
     <slot />
 {/if}
+
+<style>
+    .loader {
+        border-top-color: #ff5722;
+    }
+</style>

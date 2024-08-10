@@ -47,8 +47,6 @@
                         <span>Your password</span>
                         <Input bind:value={form.password} name="password" placeholder="•••••" required type="password"/>
                     </Label>
-                    <a class="flex items-start justify-start text-sm text-blue-700 hover:underline dark:text-blue-500 mt-3.5"
-                       href="/forgot-password">Forgot password?</a>
                     <Button class="w-full mt-3.5" on:click={signIn}>Sign In</Button>
                     <p class="text-sm font-light text-gray-500 dark:text-gray-400 mt-3.5">
                         Don’t have an account yet? <a
@@ -56,13 +54,6 @@
                         up</a>
                     </p>
                     <hr class="mt-2">
-                    <div class="flex justify-center mt-3.5">
-                        <Button class="bg-white text-black border-gray-300 shadow-md hover:bg-gray-100" type="button"
-                                variant="outline">
-                            <img alt="Google logo" class="mr-2 h-5" src="google.svg"/>
-                            Sign in with Google
-                        </Button>
-                    </div>
                 </div>
             </form>
         </div>

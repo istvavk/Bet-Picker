@@ -24,7 +24,6 @@
   // recalculate value bets when the model is changed
   $: currentValueBets = selectedModel === 'Poisson' ? valueBetsPoisson : valueBetsDC;
 
-
   async function loadData() {
     try {
       console.log('Loading data...');
@@ -53,7 +52,6 @@
 
   // dohvati vjerojatnosti za odredeni model
   function getModelProbabilities(bet) {
-    console.log("Current Bet Data for", selectedModel, ":", bet);
     if (selectedModel === 'Poisson') {
       return {
         home: bet.modelProbHome,
@@ -67,6 +65,15 @@
         away: bet.dcModelProbAway,
       };
     }
+  }
+
+  // dohvati implicirane vjerojatnosti iz kvota
+  function getImpliedProbabilities(bet) {
+    return {
+      home: bet.impliedProbHome,
+      draw: bet.impliedProbDraw,
+      away: bet.impliedProbAway,
+    };
   }
 
   onMount(async () => {
@@ -125,15 +132,18 @@
                 <div class="bg-white shadow-md rounded-lg p-4">
                     <h3 class="text-lg font-semibold text-gray-700">{bet.home_team} vs {bet.away_team}</h3>
                     <p class="mt-2 text-gray-600">
+                        <strong>Home Probability ({selectedModel}):</strong> {getModelProbabilities(bet).home.toFixed(2)}
+                        <br>
+                        <strong>Draw Probability ({selectedModel}):</strong> {getModelProbabilities(bet).draw.toFixed(2)}
+                        <br>
+                        <strong>Away Probability ({selectedModel}):</strong> {getModelProbabilities(bet).away.toFixed(2)}
                     </p>
                     <p class="mt-2 text-gray-600">
-                        <strong>Home Probability ({selectedModel}):</strong> {getModelProbabilities(bet).home.toFixed(2)}
-                    </p>
-                    <p class="mt-1 text-gray-600">
-                        <strong>Draw Probability ({selectedModel}):</strong> {getModelProbabilities(bet).draw.toFixed(2)}
-                    </p>
-                    <p class="mt-1 text-gray-600">
-                        <strong>Away Probability ({selectedModel}):</strong> {getModelProbabilities(bet).away.toFixed(2)}
+                        <strong>Implied Home Probability:</strong> {getImpliedProbabilities(bet).home.toFixed(2)}
+                        <br>
+                        <strong>Implied Draw Probability:</strong> {getImpliedProbabilities(bet).draw.toFixed(2)}
+                        <br>
+                        <strong>Implied Away Probability:</strong> {getImpliedProbabilities(bet).away.toFixed(2)}
                     </p>
                 </div>
             {/each}

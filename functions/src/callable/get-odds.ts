@@ -20,7 +20,7 @@ export const getOdds = functions.https.onRequest((req, res) => {
     try {
       const response = await axios.get(`https://api.the-odds-api.com/v4/sports/${sport}/odds`, {
         params: {
-          regions: 'us',
+          regions: 'eu',
           oddsFormat: 'decimal',
           apiKey: API_KEY
         }
@@ -43,9 +43,9 @@ export const getOdds = functions.https.onRequest((req, res) => {
               {
                 key: 'h2h',
                 outcomes: [
-                  { name: 'Bayern Munchen', price: 3.5 },
-                  { name: 'Draw', price: 3.75 },
-                  { name: 'Borussia Dortmund', price: 1.2 }
+                  { name: 'Bayern Munchen', price: 1.73 },
+                  { name: 'Draw', price: 3.10 },
+                  { name: 'Borussia Dortmund', price: 5.50 }
                 ]
               }
             ]
@@ -67,9 +67,9 @@ export const getOdds = functions.https.onRequest((req, res) => {
               {
                 key: 'h2h',
                 outcomes: [
-                  { name: 'FC Schalke 04', price: 2.8 },
-                  { name: 'Draw', price: 6 },
-                  { name: 'Hamburger SV', price: 12 }
+                  { name: 'FC Schalke 04', price: 3.0 },
+                  { name: 'Draw', price: 2.4 },
+                  { name: 'Hamburger SV', price: 3.0 }
                 ]
               }
             ]

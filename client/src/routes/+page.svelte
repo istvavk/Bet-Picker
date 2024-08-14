@@ -4,25 +4,44 @@
   import { toast, Toaster } from 'svelte-french-toast';
   import { preprocessData } from '$lib/preprocessData';
   import { identifyValueBets } from '$lib/valueBets';
-  import { Button, Label, Select, Table, TableBody, TableBodyCell, TableBodyRow, TableHead, TableHeadCell } from 'flowbite-svelte';
+  import {
+    Button,
+    Card,
+    Table,
+    TableBody,
+    TableBodyCell,
+    TableBodyRow,
+    TableHead,
+    TableHeadCell,
+    Label,
+    Input } from 'flowbite-svelte';
   import { auth } from '$lib/firebase';
 
   let odds: any[] = [];
   let csvData: any[] = [];
   let loadingOdds = true;
   let loadingCsv = true;
-  let valueBetsPoisson: any[] = [];
-  let valueBetsDC: any[] = [];
-  let selectedModel = 'Poisson';
-  const rho = 0.1; // parametar za Dixon-Coles model
+  let valueBets: any[] = [];
+  let profit = 0;
+  let wager = 100;
 
-  const models = [
-    { value: 'Poisson', name: 'Poisson Model' },
-    { value: 'Dixon-Coles', name: 'Dixon-Coles Model' },
-  ];
-
-  // recalculate value bets when the model is changed
-  $: currentValueBets = selectedModel === 'Poisson' ? valueBetsPoisson : valueBetsDC;
+  function calculateProfit() {
+    profit = 0;
+    valueBets.forEach(bet => {
+      let betProfit = 0;
+      if (bet.isValueBetHome) {
+        betProfit += (bet.modelProbHome * bet.home_odds * wager) - wager;
+      }
+      if (bet.isValueBetDraw) {
+        betProfit += (bet.modelProbDraw * bet.draw_odds * wager) - wager;
+      }
+      if (bet.isValueBetAway) {
+        betProfit += (bet.modelProbAway * bet.away_odds * wager) - wager;
+      }
+      bet.profit = betProfit; // za pojedinacni bet
+      profit += betProfit; // ukupni
+    });
+  }
 
   async function loadData() {
     try {
@@ -37,9 +56,10 @@
       console.log('CSV Data fetched:', csvData);
       toast.success('CSV data fetched successfully');
 
-      // Identify value bets for both models
-      valueBetsPoisson = identifyValueBets(odds, csvData, 0); // Poisson model, rho = 0
-      valueBetsDC = identifyValueBets(odds, csvData, rho); // Dixon-Coles model
+      valueBets = identifyValueBets(odds, csvData);
+
+      // profit za 100€
+      calculateProfit();
 
     } catch (error) {
       toast.error('Failed to fetch data');
@@ -50,35 +70,15 @@
     }
   }
 
-  // dohvati vjerojatnosti za odredeni model
-  function getModelProbabilities(bet) {
-    if (selectedModel === 'Poisson') {
-      return {
-        home: bet.modelProbHome,
-        draw: bet.modelProbDraw,
-        away: bet.modelProbAway,
-      };
-    } else {
-      return {
-        home: bet.dcModelProbHome,
-        draw: bet.dcModelProbDraw,
-        away: bet.dcModelProbAway,
-      };
-    }
-  }
-
-  // dohvati implicirane vjerojatnosti iz kvota
-  function getImpliedProbabilities(bet) {
-    return {
-      home: bet.impliedProbHome,
-      draw: bet.impliedProbDraw,
-      away: bet.impliedProbAway,
-    };
-  }
 
   onMount(async () => {
     await loadData();
   });
+
+  // opet racunaj profit kad korisnik unese novu uplatu
+  $: if (wager >= 0) {
+    calculateProfit();
+  }
 </script>
 
 <Toaster />
@@ -87,12 +87,13 @@
     <div class="flex justify-between items-center mb-8">
         <h1 class="text-3xl font-bold text-gray-800">Bet Picker - Dashboard</h1>
         <div class="flex items-center space-x-4">
-            <Label class="flex items-center space-x-2">
-                <span class="text-lg font-semibold text-gray-600">Select Model:</span>
-                <Select items={models} bind:value={selectedModel} />
-            </Label>
             <Button on:click={() => auth.signOut()} class="ml-4">Logout</Button>
         </div>
+    </div>
+
+    <div class="mb-6">
+        <Label for="wager" class="mb-2 block">Enter your wager (€)</Label>
+        <Input id="wager" type="number" min="1" bind:value={wager} class="w-48" placeholder="100" />
     </div>
 
     {#if loadingOdds}
@@ -122,33 +123,50 @@
         <p class="text-lg text-gray-500">No odds available</p>
     {/if}
 
-    <h2 class="mt-12 text-2xl font-bold text-gray-800">Value Bets ({selectedModel})</h2>
+    <h2 class="mt-12 text-2xl font-bold text-gray-800">Value Bets (Poisson Model)</h2>
 
     {#if loadingCsv}
         <p class="text-lg text-gray-500">Loading CSV data...</p>
-    {:else if currentValueBets.length > 0}
+    {:else if valueBets.length > 0}
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-            {#each currentValueBets as bet}
-                <div class="bg-white shadow-md rounded-lg p-4">
+            {#each valueBets as bet}
+                <Card>
                     <h3 class="text-lg font-semibold text-gray-700">{bet.home_team} vs {bet.away_team}</h3>
                     <p class="mt-2 text-gray-600">
-                        <strong>Home Probability ({selectedModel}):</strong> {getModelProbabilities(bet).home.toFixed(2)}
+                        <strong>Home Probability (Poisson):</strong> {bet.modelProbHome.toFixed(2)}
                         <br>
-                        <strong>Draw Probability ({selectedModel}):</strong> {getModelProbabilities(bet).draw.toFixed(2)}
+                        <strong>Draw Probability (Poisson):</strong> {bet.modelProbDraw.toFixed(2)}
                         <br>
-                        <strong>Away Probability ({selectedModel}):</strong> {getModelProbabilities(bet).away.toFixed(2)}
+                        <strong>Away Probability (Poisson):</strong> {bet.modelProbAway.toFixed(2)}
                     </p>
                     <p class="mt-2 text-gray-600">
-                        <strong>Implied Home Probability:</strong> {getImpliedProbabilities(bet).home.toFixed(2)}
+                        <strong>Implied Home Probability:</strong> {bet.impliedProbHome.toFixed(2)}
                         <br>
-                        <strong>Implied Draw Probability:</strong> {getImpliedProbabilities(bet).draw.toFixed(2)}
+                        <strong>Implied Draw Probability:</strong> {bet.impliedProbDraw.toFixed(2)}
                         <br>
-                        <strong>Implied Away Probability:</strong> {getImpliedProbabilities(bet).away.toFixed(2)}
+                        <strong>Implied Away Probability:</strong> {bet.impliedProbAway.toFixed(2)}
                     </p>
-                </div>
+                    <p class="mt-4 text-gray-800">
+                        <strong>Profit:</strong>
+                        {#if bet.isValueBetHome}
+                            {((bet.modelProbHome * bet.home_odds * wager) - wager).toFixed(2)} €
+                        {:else if bet.isValueBetDraw}
+                            {((bet.modelProbDraw * bet.draw_odds * wager) - wager).toFixed(2)} €
+                        {:else if bet.isValueBetAway}
+                            {((bet.modelProbAway * bet.away_odds * wager) - wager).toFixed(2)} €
+                        {:else}
+                            0.00 €
+                        {/if}
+                    </p>
+                </Card>
             {/each}
         </div>
     {:else}
         <p class="text-lg text-gray-500">No value bets found</p>
     {/if}
+
+    <div class="mt-8">
+        <h2 class="text-2xl font-bold text-gray-800">Total Profit</h2>
+        <p class="text-lg text-gray-600">{profit.toFixed(2)} €</p>
+    </div>
 </div>

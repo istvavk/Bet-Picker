@@ -7,22 +7,10 @@ function poissonProbability(lambda: number, k: number): number {
 }
 
 export function poissonModel(avgGoalsHome: number, avgGoalsAway: number, maxGoals: number = 10) {
-  console.log('Input Data for Poisson Model:', avgGoalsHome, avgGoalsAway);
   const homeGoals = Array.from({ length: maxGoals }, (_, k) => poissonProbability(avgGoalsHome, k));
   const awayGoals = Array.from({ length: maxGoals }, (_, k) => poissonProbability(avgGoalsAway, k));
-  console.log('Poisson Model - Home Goals:', homeGoals);
-  console.log('Poisson Model - Away Goals:', awayGoals);
-  return { homeGoals, awayGoals };
-}
 
-export function dixonColesModel(avgGoalsHome: number, avgGoalsAway: number, rho: number, maxGoals: number = 10) {
-  const homeGoals = Array.from({ length: maxGoals }, (_, k) => poissonProbability(avgGoalsHome, k));
-  const awayGoals = Array.from({ length: maxGoals }, (_, k) => poissonProbability(avgGoalsAway, k));
-  const adjustedHomeGoals = homeGoals.map((hg, i) => hg * Math.exp(-rho * (i / avgGoalsHome)));
-  const adjustedAwayGoals = awayGoals.map((ag, i) => ag * Math.exp(-rho * (i / avgGoalsAway)));
-  console.log('Dixon-Coles Model - Adjusted Home Goals:', adjustedHomeGoals);
-  console.log('Dixon-Coles Model - Adjusted Away Goals:', adjustedAwayGoals);
-  return { adjustedHomeGoals, adjustedAwayGoals };
+  return { homeGoals, awayGoals };
 }
 
 // predikcija ishoda utakmice
@@ -39,7 +27,7 @@ export function predictOutcome(homeGoals: number[], awayGoals: number[]): { home
       else awayWin += prob;
     }
   }
-  console.log(`Predicted Outcome - Home Win: ${homeWin}, Draw: ${draw}, Away Win: ${awayWin}`);
+
   return { homeWin, draw, awayWin };
 }
 
@@ -72,4 +60,3 @@ export function calculateTeamAverages(csvData, homeTeam: string, awayTeam: strin
     avgGoalsAwayAgainst
   };
 }
-

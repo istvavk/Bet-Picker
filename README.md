@@ -1,4 +1,4 @@
-# Bet-Picker ⚽📊
+# Bet-Picker
 
 A data-driven betting decision-support application that estimates match outcome probabilities using the Poisson model and highlights potential value bets.
 

@@ -19,10 +19,10 @@ The system calculates outcome probabilities, converts odds into implied probabil
 ## Preview
 
 ### Odds Overview
-![Odds Table](./docs/odds-table.jpg)
+![Odds Table](./docs/odds_table.jpg)
 
 ### Value Bet Detection
-![Value Bets](./docs/value-bets.png)
+![Value Bets](./docs/value_bets.png)
 
 ---
 
